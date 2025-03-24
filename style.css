@@ -1,5 +1,7 @@
 /* General Styles */ 
-
+{
+    box-sizing: border-box;
+}
 body { 
 
     font-family: Arial, sans-serif; 
@@ -8,26 +10,91 @@ body {
 
     padding: 0; 
 
-    background-color: #f4f4f4; 
+    background-color: #ffffff; 
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
 
 } 
 
- 
+.checkout-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.payment-form {
+    text-align: left;
+}
+
+.payment-form h2 {
+    margin-bottom: 15px;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.payment-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.payment-form button:hover {
+    background-color: #218838;
+}
 
 /* Header and Navigation Bar */ 
 
 header { 
 
-    background-color: #e0bb6a; 
+    background-color: #ffffff; 
 
-    color: white; 
+    color: rgb(0, 0, 0); 
 
     padding: 15px; 
 
     text-align: center; 
 
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
 } 
 
+header h1 {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
  
 
 nav ul { 
@@ -48,17 +115,55 @@ nav ul li {
 
 } 
 
- 
+nav ul li a[href="index.html"] {
+    font-size: 20px; /* Adjust the font size as needed */
+}
+
+nav ul li a[href="store.html"] {
+    font-size: 20px; /* Adjust the font size as needed */
+}
+
+nav ul li a[href="services.html"] {
+    font-size: 20px; /* Adjust the font size as needed */
+}
+
+nav ul li a[href="contact.html"] {
+    font-size: 20px; /* Adjust the font size as needed */
+}
+
+.icons {
+    float: right;
+    margin-right: 10px;
+}
+
+.icons img {
+    width: 24px; /* Adjust the width as needed */
+    height: auto; /* Maintain the aspect ratio */
+}
 
 nav ul li a { 
 
-    color: white; 
+    color: rgb(0, 0, 0); 
 
     text-decoration: none; 
 
 } 
 
- 
+ .hero-image {
+    float; right;
+    margin-left: 375px;
+ }
+
+ button {
+    background-image: url('Shop\ With\ Us.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    width: 150px;
+    height: 50px;
+    color: transparent;
+    cursor: pointer;
+ }
 
 /* Main Content */ 
 
@@ -66,28 +171,66 @@ section {
 
     padding: 20px; 
 
-    text-align: center; 
+    text-align: left; 
 
 } 
 
+.hero-text p {
+    font-size: 48px; /* Adjust the font size as needed */
+}
  
 
 /* Footer */ 
 
 footer { 
 
-    background-color: #333; 
+    background-color: #ffffff; 
 
-    color: white; 
+    color: rgb(0, 0, 0); 
 
     text-align: center; 
 
     padding: 10px; 
 
-    position: fixed; 
+    position: auto; 
 
     bottom: 0; 
 
     width: 100%; 
 
+    border: 2px solid black; /* Add black outline */
+
 } 
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
