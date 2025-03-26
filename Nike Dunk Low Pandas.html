@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nike Dunk Low Panda</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <h1>Sōru</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="services.html">Collection</a></li>
+        <li><a href="contact.html">New Arrivals</a></li>
+      </ul>
+    </nav>
+    <div class="icons">
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." class="search-input">
+        </div>
+      <a href="checkout.html"><img src="Cart.jpg" alt="Cart"></a>
+    </div>
+  </header>
+
+ <!-- Main Content -->
+ <main class="product-page">
+    <div class="product-images-column">
+      <div class="thumbnail-column">
+        <!-- Thumbnail for Sideways View -->
+        <div class="small-grey-box">
+            <img src="Nike Dunk Low Panda Sideways.webp" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Sideways.webp')">
+        </div>
+        <!-- Thumbnail for Front View -->
+        <div class="small-grey-box">
+            <img src="Nike Dunk Low Panda Front.webp" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Front.webp')">
+        </div>
+        <!-- Thumbnail for Top View -->
+        <div class="small-grey-box">
+        <img src="Nike Dunk Low Panda Top.webp" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Top.webp')">
+        </div>
+        <!-- Thumbnail for Back View -->
+        <div class="small-grey-box">
+        <img src="Nike Dunk Low Panda Rear.webp" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Rear.webp')">
+        </div>
+        <!-- Thumbnail for Close up Look on Front -->
+        <div class="small-grey-box">
+        <img src="Nike Dunk Low Panda Close up Front.jpg" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Close up Front.jpg')">
+        </div>
+        <div class="small-grey-box">
+        <!-- Thumbnail for Close up Look on Rear -->
+        <img src="Nike Dunk Low Panda Close up Rear.jpg" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Close up Rear.jpg')">
+        </div>
+      </div>
+      <div class="main-grey-box">
+        <!-- Main Image -->
+        <img id="main-image" src="Nike Dunk Low Panda Sideways.webp" alt="Main Shoe Image">
+      </div>
+    </div>
+    <div class="right-column">
+        <h1> Nike Dunk Low Panda</h1>
+        <p class="price">$120.00</p>
+        <p class="description">
+            The Nike Dunk Low Panda is a classic sneaker that has been re-released in 2021. The shoe features a black and white colorway with a panda design on the side. The shoe is made of leather and has a rubber sole. The Nike Dunk Low Panda is a versatile shoe that can be worn with a variety of outfits.
+        </p>
+        <div class=""size-options">
+        <h3>Select Size (UK):</h3>
+    <div class="sizes">
+        <button class="size-button">6</button>
+        <button class="size-button">7</button>
+        <button class="size-button">8</button>
+        <button class="size-button">9</button>
+        <button class="size-button">10</button>
+        <button class="size-button">11</button>
+        <button class="size-button">12</button>
+     </div>
+    </div>
+        <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p>&copy; 2025 Sōru All Rights Reserved.</p>
+  </footer>
+<script>
+    function changeMainImage(imageSrc) {
+      const mainImage = document.getElementById('main-image');
+      mainImage.src = imageSrc;
+    }
+  </script>
+
+<script>
+    const sizeButtons = document.querySelectorAll('.size-button');
+  
+    sizeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove the 'selected' class from all buttons
+        sizeButtons.forEach(btn => btn.classList.remove('selected'));
+        // Add the 'selected' class to the clicked button
+        button.classList.add('selected');
+      });
+    });
+  </script>
+
+</body>
+</html>
