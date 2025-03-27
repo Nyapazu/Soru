@@ -1,19 +1,17 @@
-// Function to load the header dynamically
-function loadHeader() {
-    fetch('header.html') // Fetch the header.html file
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to load header');
-            }
-            return response.text();
-        })
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data; // Insert the header content
-        })
-        .catch(error => {
-            console.error('Error loading header:', error);
-        });
-}
-
-// Call the function to load the header
-loadHeader();
+document.addEventListener("DOMContentLoaded", () => {
+    // Fetch the header.html file
+    fetch("header.html")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to load header");
+        }
+        return response.text();
+      })
+      .then(data => {
+        // Insert the header content into the <header> element
+        document.querySelector("header").outerHTML = data;
+      })
+      .catch(error => {
+        console.error("Error loading header:", error);
+      });
+  });

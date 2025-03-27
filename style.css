@@ -242,9 +242,16 @@ nav ul li a[href="contact.html"] {
 
 /* Main Content */
 
+.product-row {
+    display: flex; /* Arrange items in a row */
+    gap: 10px; /* Add space between the grey boxes */
+    justify-content: center; /* Center the row horizontally */
+    margin: 20px 0; /* Add spacing above and below the row */
+}
+
 .grey-box {
-    width: 350px; /* Adjust width to match JD Sports box size */
-    height: 350px; /* Adjust height to match JD Sports box size */
+    width: 100%; /* Adjust width to match JD Sports box size */
+    height: 380px; /* Adjust height to match JD Sports box size */
     background-color: #f5f5f5; /* Light grey background for a modern look */
     display: flex;
     justify-content: center;
@@ -258,6 +265,7 @@ nav ul li a[href="contact.html"] {
     color: #333; /* Dark grey text color */
     overflow: hidden; /* Ensure content stays inside the box */
     position: relative;
+    transition: transform 0.3s ease;
 }
 
 .grey-box img {
@@ -269,8 +277,9 @@ nav ul li a[href="contact.html"] {
 }
 
 .shoe-details {
-    text-align: center;
     margin-top: 10px;
+    text-align: left;
+    width: 100%
 }
 
 .shoe-name {
@@ -307,6 +316,10 @@ nav ul li a[href="contact.html"] {
     transition: opacity 0.3s ease-in-out; /* Smooth transition */
     z-index: 2;
     opacity: 0; /* Initially hidden */
+}
+
+.grey-box:hover {
+    transform: scale(1.05); /* Scale up the box on hover */
 }
 
 .grey-box:hover .shoe-image {
@@ -439,8 +452,24 @@ footer {
 .product-page {
     display: flex;
     justify-content: space-between;
-    padding: 40px 80px; /* Add padding similar to JD Sports */
+    padding: 40px 80px; /* Add padding */
     gap: 20px; /* Space between the left and right columns */
+}
+
+.product-grid {
+    display: flex; /* Arrange items in a row */
+    flex-wrap: wrap; /* Allow wrapping to the next row if needed */
+    gap: 20px; /* Add space between the grey boxes */
+    justify-content: center; /* Center the grid horizontally */
+    padding: 20px; /* Add padding around the grid */
+}
+
+.product-item {
+    display: flex;
+    flex-direction: column; /* Stack the grey box and text vertically */
+    align-items: flex-start; /* Center-align the content */
+    width: 380px; /* Set a fixed width for each product item */
+    box-sizing: border-box; /* Include padding and border in the width */
 }
 
 .right-column {
@@ -455,6 +484,31 @@ footer {
     font-size: 28px;
     font-weight: bold;
     color: #333;
+}
+
+.brand-name {
+    font-size: 18px; /* Smaller font size */
+    color: #888; /* Light grey color */
+    text-transform: uppercase; /* Make the text uppercase */
+    letter-spacing: 1px; /* Add spacing between letters */
+    margin-bottom: 5px; /* Add spacing below the brand name */
+    font-weight: bold; /* Make the brand name bold */
+}
+
+.unisex-label {
+    font-size: 14px; /* Same size as the brand name */
+    color: #555; /* Slightly darker grey for contrast */
+    text-transform: uppercase; /* Make the text uppercase */
+    letter-spacing: 1px; /* Add spacing between letters */
+    margin-bottom: 5px; /* Add spacing below the unisex label */
+    font-weight: bold; /* Make the label bold */
+}
+
+.product-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
 }
 
 .right-column .price {
