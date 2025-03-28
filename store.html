@@ -5,21 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Store</title>
   <link rel="stylesheet" href="style.css">
-  <script src="loadHeader.js" defer></script>
+  <script src="cartUtils.js" defer></script>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <h1 class="brand-logo">Sōru</h1>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Sōru</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="store.html">Store</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <div class="search-bar">
+          <input type="text" id="search-bar" placeholder="Search for products..." class="search-input">
+          <button class="search-button">Search</button>
+          <div id="search-suggestions" class="search-suggestions"></div>
+        </div>
+        <a href="checkout.html"><img src="Cart.jpg" alt="Cart"></a>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="collection.html">Collection</a></li>
-        <li><a href="new-arrivals.html">New Arrivals</a></li>
-      </ul>
-    </nav>
   </header>
 
   <!-- Filter Button -->
@@ -55,8 +66,8 @@
       <div class="product-item" data-category="dunks" data-gender="unisex">
         <div class="grey-box">
           <a href="Nike Dunk Low Pandas.html" class="grey-box-link">
-            <img src="Nike Dunk Low Panda Sideways.webp" alt="Shoe Image" class="shoe-image">
-            <img src="Nike Dunk Low Panda Front.webp" alt="Shoe Hover Image" class="shoe-image-hover">
+            <img src="Nike Dunk Low Panda Sideways.webp" alt="Nike Dunk Low Panda" class="shoe-image">
+            <img src="Nike Dunk Low Panda Front.webp" alt="Nike Dunk Low Panda Hover" class="shoe-image-hover">
           </a>
         </div>
         <div class="shoe-details">
@@ -69,12 +80,12 @@
       <div class="product-item" data-category="air-force-1" data-gender="unisex">
         <div class="grey-box">
           <a href="Nike Air Forces 1.html" class="grey-box-link">
-            <img src="Nike Air Forces 1 Sideways.webp" alt="Shoe Image" class="shoe-image">
-            <img src="Nike Air Forces 1 Front.webp" alt="Shoe Hover Image" class="shoe-image-hover">
+            <img src="Nike Air Forces 1 Sideways.webp" alt="Nike Air Force 1" class="shoe-image">
+            <img src="Nike Air Forces 1 Front.webp" alt="Nike Air Force 1 Hover" class="shoe-image-hover">
           </a>
         </div>
         <div class="shoe-details">
-          <p class="shoe-name">Nike Air Forces 1</p>
+          <p class="shoe-name">Nike Air Force 1</p>
           <p class="shoe-price"><strong>$115</strong></p>
         </div>
       </div>
@@ -83,8 +94,8 @@
       <div class="product-item" data-category="air-max" data-gender="men">
         <div class="grey-box">
           <a href="Nike Air Max 90.html" class="grey-box-link">
-            <img src="Nike Air Max 90 Sideways.jpg" alt="Shoe Image" class="shoe-image">
-            <img src="Nike Air Max 90 Front.jpg" alt="Shoe Hover Image" class="shoe-image-hover">
+            <img src="Nike Air Max 90 Sideways.jpg" alt="Nike Air Max 90" class="shoe-image">
+            <img src="Nike Air Max 90 Front.jpg" alt="Nike Air Max 90 Hover" class="shoe-image-hover">
           </a>
         </div>
         <div class="shoe-details">
@@ -97,8 +108,8 @@
       <div class="product-item" data-category="dunks" data-gender="unisex">
         <div class="grey-box">
           <a href="Nike Dunks Redwood.html" class="grey-box-link">
-            <img src="Nike Dunk Redwood Sideways.webp" alt="Shoe Image" class="shoe-image">
-            <img src="Nike Dunk Redwood Front.png" alt="Shoe Hover Image" class="shoe-image-hover">
+            <img src="Nike Dunk Redwood Sideways.webp" alt="Nike Dunks Redwood" class="shoe-image">
+            <img src="Nike Dunk Redwood Front.png" alt="Nike Dunks Redwood Hover" class="shoe-image-hover">
           </a>
         </div>
         <div class="shoe-details">
@@ -111,8 +122,8 @@
       <div class="product-item" data-category="dunks" data-gender="women">
         <div class="grey-box">
           <a href="Nike Dunks Grey.html" class="grey-box-link">
-            <img src="Grey Dunks Sideways.webp" alt="Shoe Image" class="shoe-image">
-            <img src="Grey Dunks Front.webp" alt="Shoe Hover Image" class="shoe-image-hover">
+            <img src="Grey Dunks Sideways.webp" alt="Nike Grey Dunks" class="shoe-image">
+            <img src="Grey Dunks Front.webp" alt="Nike Grey Dunks Hover" class="shoe-image-hover">
           </a>
         </div>
         <div class="shoe-details">
@@ -125,8 +136,8 @@
       <div class="product-item" data-category="air-force-1" data-gender="men">
         <div class="grey-box">
           <a href="Nike AF 1 Low Light.html" class="grey-box-link">
-            <img src="Nike AF 1 Low Light Bone Sail Sideways.webp" alt="Shoe Image" class="shoe-image">
-            <img src="Nike AF 1 Low Light Bone Sail Front.png" alt="Shoe Hover Image" class="shoe-image-hover">
+            <img src="Nike AF 1 Low Light Bone Sail Sideways.webp" alt="Nike AF 1 Low Light Bone Sail" class="shoe-image">
+            <img src="Nike AF 1 Low Light Bone Sail Front.png" alt="Nike AF 1 Low Light Bone Sail Hover" class="shoe-image-hover">
           </a>
         </div>
         <div class="shoe-details">
@@ -140,6 +151,9 @@
   <!-- Page Overlay -->
   <div id="page-overlay" class="page-overlay"></div>
 
+  <!-- Scripts -->
+  <script src="filterSidebar.js" defer></script>
+  <script src="searchBar.js" defer></script>
   <script>
     // Open and Close Filter Sidebar with Overlay
     const filterButton = document.getElementById('filter-button');
@@ -155,8 +169,8 @@
       pageOverlay.classList.add('visible');
     });
 
-    // Close the sidebar and hide the overlay
-    closeFilter.addEventListener('click', () => {
+// Close the sidebar and hide the overlay
+closeFilter.addEventListener('click', () => {
       filterSidebar.classList.remove('open');
       pageOverlay.classList.remove('visible');
     });
@@ -199,33 +213,9 @@
     genderFilters.forEach(checkbox => checkbox.addEventListener('change', filterProducts));
   </script>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-section">
-          <h3>Company</h3>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Support</h3>
-          <ul>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="support.html">Support</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-      </div>
-      <p>&copy; 2025 Sōru All Rights Reserved.</p>
-    </footer>
-  </body>
-  </html>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sōru All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

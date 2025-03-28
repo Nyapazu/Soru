@@ -5,22 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Checkout - Sōru</title>
   <link rel="stylesheet" href="style.css">
-  <script src="cartHandler.js" defer></script> <!-- Updated to use cartHandler.js -->
+  <script src="cartUtils.js" defer></script>
 </head>
 <body>
+
   <!-- Header -->
   <header>
-    <div class="logo">
-      <h1 class="brand-logo">Sōru</h1>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Sōru</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="store.html">Store</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <div class="search-bar">
+          <input type="text" id="search-bar" placeholder="Search for products..." class="search-input">
+          <button class="search-button">Search</button>
+          <div id="search-suggestions" class="search-suggestions"></div>
+        </div>
+        <a href="checkout.html"><img src="Cart.jpg" alt="Cart"></a>
+      </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="collection.html">Collection</a></li>
-        <li><a href="new-arrivals.html">New Arrivals</a></li>
-      </ul>
-    </nav>
   </header>
 
   <!-- Checkout Section -->
@@ -39,7 +51,7 @@
       <!-- Payment Form -->
       <div class="payment-form">
         <h3>Payment Details</h3>
-        <form action="#" method="POST">
+        <form id="checkout-form" action="#" method="POST">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
@@ -68,39 +80,98 @@
   <footer>
     <div class="footer-container">
       <div class="footer-section">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Support</h3>
-        <ul>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="support.html">Support</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Legal</h3>
-        <ul>
-          <li><a href="terms.html">Terms of Service</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
+        <p>&copy; 2025 Sōru All Rights Reserved.</p>
       </div>
     </div>
-    <p>&copy; 2025 Sōru All Rights Reserved.</p>
   </footer>
 
   <!-- Include the cart rendering script -->
   <script>
-    // Render the cart dynamically on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof renderCart === 'function') {
-        renderCart();
+    // Function to render the cart dynamically
+    function renderCart() {
+      const cartItemsContainer = document.getElementById('cart-items');
+      const cartTotalElement = document.getElementById('cart-total');
+
+      // Retrieve the cart from localStorage
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Clear the cart container
+      cartItemsContainer.innerHTML = '';
+
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        cartTotalElement.innerHTML = '<strong>Total: $0</strong>';
+        return;
       }
+
+      let total = 0;
+
+      // Loop through the cart and render each item
+      cart.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+          <div class="cart-item-details">
+            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+            <div>
+              <p><strong>${item.name}</strong></p>
+              <p>Size: ${item.size}</p>
+              <p>Price: $${item.price}</p>
+              <p>Quantity: ${item.quantity}</p>
+            </div>
+          </div>
+          <button class="remove-item" onclick="removeFromCart(${item.id}, '${item.size}')">Remove</button>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+
+        // Calculate the total price
+        total += item.price * item.quantity;
+      });
+
+      // Update the total price
+      cartTotalElement.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+    }
+
+    // Function to remove an item from the cart
+    function removeFromCart(productId, size) {
+      // Retrieve the cart from localStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Filter out the item to be removed
+      cart = cart.filter(item => !(item.id === productId && item.size === size));
+
+      // Save the updated cart back to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Re-render the cart
+      renderCart();
+    }
+
+    // Handle the checkout process
+    const checkoutForm = document.getElementById('checkout-form');
+    checkoutForm.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Validate the form inputs (basic validation)
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const address = document.getElementById('address').value;
+
+      if (!name || !email || !address) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Clear the cart after checkout
+      localStorage.removeItem('cart');
+
+      // Redirect to a confirmation page or show a success message
+      alert('Thank you for your order! Your cart has been cleared.');
+      window.location.href = 'checkout.html'; // Redirect to a confirmation page
     });
+
+    // Render the cart dynamically on page load
+    document.addEventListener('DOMContentLoaded', renderCart);
   </script>
 </body>
 </html>

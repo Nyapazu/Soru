@@ -1,87 +1,105 @@
-<!DOCTYPE html> 
-
-<html lang="en"> 
-
-<head> 
-
-    <meta charset="UTF-8"> 
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
-    <title>Sōru - Shop Shoes</title> 
-
-    <link rel="stylesheet" href="style.css"> 
-
-</head> 
-
-<body> 
-
-    <!-- Navigation Bar --> 
-
-    <header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sōru - Authentic Modern Footwear</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="loadHeader.js" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
         <h1>Sōru</h1>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="store.html">Store</a></li>
-            <li><a href="services.html">Collection</a></li>
-            <li><a href="contact.html">New Arrivals</a></li>
-          </ul>
-        </nav>
-        <div class="icons">
-          <div class="search-bar">
-            <input type="text" placeholder="Search..." class="search-input">
-          </div>
-          <a href="checkout.html"><img src="Cart.jpg" alt="Cart.jpg"></a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="store.html">Store</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <div class="search-bar">
+          <input type="text" id="search-bar" placeholder="Search" class="search-input">
+          <button class="search-button">Search</button>
+          <div id="search-suggestions" class="search-suggestions"></div>
         </div>
-    </header>
+        <a href="checkout.html"><img src="Cart.jpg" alt="Cart"></a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Homepage Content --> 
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Authentic Modern Footwear</h2>
+      <p>Find Your Sole Mate With Us</p>
+      <a href="store.html" class="cta-button">Shop Now</a>
+    </div>
+    <div class="hero-image">
+      <img src="Index Banner.jpg" alt="Shoes">
+    </div>
+  </section>
 
-    <section class="hero"> 
-        <div class="hero-text">
-            <h2>Authentic Japanese Footwear, Just a Click Away</h2> 
-            <p>Find Your<br>
-                Sole Mate<br> 
-                With Us</p> 
-            <button>Shop Now</button>
-            <a href="store.html">Shop Now</a>
-        </div>
-        <div class="hero-image">
-            <img src="Adidas Shoes.png" alt="Shoes">
-        </div>
-    </section> 
+  <!-- Featured Products -->
+   <!--
+  <section class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-item">
+        <img src="Nike Dunk Low Panda Sideways.webp" alt="Nike Dunk Low Panda">
+        <h3>Nike Dunk Low Panda</h3>
+        <p>$120</p>
+        <a href="Nike Dunk Low Pandas.html" class="product-link">View Product</a>
+      </div>
+      <div class="product-item">
+        <img src="Nike Air Forces 1 Sideways.webp" alt="Nike Air Force 1">
+        <h3>Nike Air Force 1</h3>
+        <p>$115</p>
+        <a href="Nike Air Forces 1.html" class="product-link">View Product</a>
+      </div>
+      <div class="product-item">
+        <img src="Nike Air Max 90 Sideways.jpg" alt="Nike Air Max 90">
+        <h3>Nike Air Max 90</h3>
+        <p>$150</p>
+        <a href="Nike Air Max 90.html" class="product-link">View Product</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
+ <!-- Single Brand Collection -->
+ <section class="single-brand-collection">
+    <div class="brand-box">
+      <img src="Collection Banner 2 (1).jpg" alt="Nike Collection">
+      <div class="brand-content">
+        <h2>Nike Collection</h2>
+        <p>Discover the latest and greatest from Nike. Step into innovation and style with Nike footwear collection.</p>
+        <a href="store.html" class="cta-button">Shop Nike</a>
+      </div>
+    </div>
+  </section>
 
-    <footer> 
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Support</h3>
-                <ul>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="support.html">Support</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
-        <p>&copy; 2025 Sōru All Rights Reserved.</p> 
-    </footer>  
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Sōru</h2>
+    <p>
+      At Sōru, we bring you the finest footwear, blending tradition with modern design. 
+      Explore our collection and find the perfect pair to match your style.
+    </p>
+    <a href="about.html" class="cta-button">Learn More</a>
+  </section>
 
-</body> 
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Sōru All Rights Reserved.</p>
+  </footer>
 
+  <script src="cartUtils.js"></script>
+    
+</body>
 </html>

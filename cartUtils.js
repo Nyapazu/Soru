@@ -1,52 +1,79 @@
 function searchProducts() {
-    const searchInput = document.getElementById("search-bar").value.toLowerCase();
-    const productItems = document.querySelectorAll(".product-item");
-  
-    productItems.forEach((item) => {
-      const productName = item.querySelector("h3").textContent.toLowerCase();
-      if (productName.includes(searchInput)) {
-        item.style.display = "block"; // Show matching products
-      } else {
-        item.style.display = "none"; // Hide non-matching products
-      }
-    });
+  const searchInput = document.getElementById("search-bar").value.toLowerCase();
+  const suggestionsContainer = document.getElementById("search-suggestions");
+
+  // Clear previous suggestions
+  suggestionsContainer.innerHTML = "";
+
+  if (searchInput.trim() === "") {
+    suggestionsContainer.style.display = "none"; // Hide suggestions if input is empty
+    return;
   }
 
-  async function searchProducts() {
-    const searchInput = document.getElementById("search-bar").value.toLowerCase();
-    const productGrid = document.querySelector(".product-grid");
-  
-    // Fetch product data from the JSON file
-    const response = await fetch("products.json");
-    const products = await response.json();
-  
-    // Clear the current product grid
-    productGrid.innerHTML = "";
-  
-    // Filter and display matching products
-    const filteredProducts = products.filter(product =>
-      product.name.toLowerCase().includes(searchInput)
-    );
-  
-    if (filteredProducts.length > 0) {
-      filteredProducts.forEach(product => {
-        const productItem = document.createElement("div");
-        productItem.classList.add("product-item");
-        productItem.innerHTML = `
-          <img src="${product.image}" alt="${product.name}">
-          <h3>${product.name}</h3>
-          <p>${product.price}</p>
-          <a href="${product.link}" class="product-link">View Product</a>
-        `;
-        productGrid.appendChild(productItem);
-      });
-    } else {
-      // Display "No results found" message
-      const noResultsMessage = document.createElement("p");
-      noResultsMessage.id = "no-results-message";
-      noResultsMessage.textContent = "No products found.";
-      noResultsMessage.style.textAlign = "center";
-      noResultsMessage.style.marginTop = "20px";
-      productGrid.appendChild(noResultsMessage);
+  let hasResults = false;
+
+  products.forEach((product) => {
+    if (product.name.toLowerCase().includes(searchInput)) {
+      hasResults = true;
+
+      // Create a suggestion item
+      const suggestionItem = document.createElement("div");
+      suggestionItem.classList.add("suggestion-item");
+      suggestionItem.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="suggestion-image">
+        <a href="${product.link}" class="suggestion-link">${product.name}</a>
+        <p class="suggestion-price">${product.price}</p>
+      `;
+      suggestionsContainer.appendChild(suggestionItem);
     }
+  });
+
+  // Show or hide the suggestions container based on results
+  if (hasResults) {
+    suggestionsContainer.style.display = "block";
+  } else {
+    suggestionsContainer.style.display = "none";
   }
+}
+
+// Attach the searchProducts function to the search bar's input event
+document.getElementById("search-bar").addEventListener("input", searchProducts);
+
+const products = [
+  {
+    name: "Nike Dunk Low Panda",
+    price: "$120",
+    image: "Nike Dunk Low Panda Sideways.webp",
+    link: "Nike Dunk Low Pandas.html",
+  },
+  {
+    name: "Nike Air Force 1",
+    price: "$115",
+    image: "Nike Air Forces 1 Sideways.webp",
+    link: "Nike Air Forces 1.html",
+  },
+  {
+    name: "Nike Air Max 90",
+    price: "$150",
+    image: "Nike Air Max 90 Sideways.jpg",
+    link: "Nike Air Max 90.html",
+  },
+  {
+    name: "Nike Dunks Redwood ",
+    price: "$120",
+    image: "Nike Dunk Redwood Sideways.webp",
+    link: "Nike Dunks Redwood.html",
+  },
+  {
+    name: "Nike Dunks Retro",
+    price: "$120",
+    image: "Grey Dunks Sideways.webp",
+    link: "Nike Dunks Grey.html",
+  },
+  {
+    name: "Nike Air Forces 1 Low 'Light Bone Sail'",
+    price: "$125",
+    image: "Nike AF 1 Low Light Bone Sail Sideways.webp",
+    link: "Nike AF 1 Low Light.html",
+  },
+];

@@ -1,17 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Fetch the header.html file
-    fetch("header.html")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Failed to load header");
-        }
-        return response.text();
-      })
-      .then(data => {
-        // Insert the header content into the <header> element
-        document.querySelector("header").outerHTML = data;
-      })
-      .catch(error => {
-        console.error("Error loading header:", error);
-      });
-  });
+  const headerElement = document.querySelector("header");
+
+  if (!headerElement) {
+    console.error("Error: No <header> element found in the document.");
+    return;
+  }
+
+  fetch("header.html")
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to load header: ${response.status} ${response.statusText}`);
+      }
+      return response.text();
+    })
+    .then(data => {
+      headerElement.innerHTML = data;
+      console.log("Header loaded successfully.");
+    })
+    .catch(error => {
+      console.error("Error loading header:", error);
+    });
+});

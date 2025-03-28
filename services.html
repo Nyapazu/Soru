@@ -5,12 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Services</title>
   <link rel="stylesheet" href="style.css">
-  <script src="loadHeader.js" defer></script>
+  <script src="cartUtils.js" defer></script>
 </head>
 <body>
-  <header></header>
-  <!-- Placeholder for the dynamically loaded header -->
-  <div id="header-placeholder"></div>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <h1>Sōru</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="store.html">Store</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <div class="search-bar">
+          <input type="text" id="search-bar" placeholder="Search for products..." class="search-input">
+          <button class="search-button">Search</button>
+          <div id="search-suggestions" class="search-suggestions"></div>
+        </div>
+        <a href="checkout.html"><img src="Cart.jpg" alt="Cart"></a>
+      </div>
+    </div>
+  </header>
 
   <!-- Hero Section -->
   <section class="services-hero">
@@ -50,15 +71,6 @@
   <footer>
     <div class="footer-container">
       <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="store.html">Store</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
     <p>&copy; 2025 Sōru All Rights Reserved.</p>
   </footer>
 </body>
