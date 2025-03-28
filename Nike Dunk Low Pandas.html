@@ -3,55 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nike Dunk Low Panda</title>
+  <title>Nike Dunks Retro</title>
   <link rel="stylesheet" href="style.css">
-  <script src="loadHeader.js" defer></script> <!-- Dynamically loads the header -->
+  <script src="loadHeader.js" defer></script> <!-- Script for loading the header -->
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <header>
-    <h1>Sōru</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="services.html">Collection</a></li>
-        <li><a href="contact.html">New Arrivals</a></li>
-      </ul>
-    </nav>
-    <div class="icons">
-      <div class="search-bar">
-      <a href="checkout.html"><img src="Cart.jpg" alt="Cart"></a>
-    </div>
-  </header>
+  <header></header>
 
-  <!-- Main Content -->
+  <!-- Product Page Content -->
   <main class="product-page">
     <div class="product-images-column">
       <div class="thumbnail-column">
         <!-- Thumbnail for Sideways View -->
         <div class="small-grey-box">
-          <img src="Nike Dunk Low Panda Sideways.webp" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Sideways.webp')">
+          <img src="Nike Dunk Low Panda Sideways.webp" alt="Thumbnail of Nike Dunks Pandas Sideways" onmouseover="changeMainImage('Nike Dunk Low Panda Sideways.webp')">
         </div>
         <!-- Thumbnail for Front View -->
         <div class="small-grey-box">
-          <img src="Nike Dunk Low Panda Front.webp" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Front.webp')">
+          <img src="Nike Dunk Low Panda Front.webp" alt="Thumbnail of Nike Dunks Pandas Front" onmouseover="changeMainImage('Nike Dunk Low Panda Front.webp')">
         </div>
         <!-- Thumbnail for Top View -->
         <div class="small-grey-box">
-          <img src="Nike Dunk Low Panda Top.webp" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Top.webp')">
+          <img src="Nike Dunk Low Panda Top.webp" alt="Thumbnail of Nike Dunks Pandas Top" onmouseover="changeMainImage('Nike Dunk Low Panda Top.webp')">
         </div>
         <!-- Thumbnail for Back View -->
         <div class="small-grey-box">
-          <img src="Nike Dunk Low Panda Rear.webp" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Rear.webp')">
+          <img src="Nike Dunk Low Panda Rear.webp" alt="Thumbnail of Nike Dunks Pandas Rear" onmouseover="changeMainImage('Nike Dunk Low Panda Rear.webp')">
         </div>
-        <!-- Thumbnail for Close up Look on Front -->
+        <!-- Thumbnail for Close-up Look on Front -->
         <div class="small-grey-box">
-          <img src="Nike Dunk Low Panda Close up Front.jpg" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Close up Front.jpg')">
+          <img src="Nike Dunk Low Panda Close up Front.jpg" alt="Thumbnail of Nike Dunks Pandas Close Front" onmouseover="changeMainImage('Nike Dunk Low Panda Close up Front.jpg')">
         </div>
-        <!-- Thumbnail for Close up Look on Rear -->
+        <!-- Thumbnail for Close-up Look on Rear -->
         <div class="small-grey-box">
-          <img src="Nike Dunk Low Panda Close up Rear.jpg" alt="Thumbnail of Nike Dunk Low Panda" onmouseover="changeMainImage('Nike Dunk Low Panda Close up Rear.jpg')">
+          <img src="Nike Dunk Low Panda Close up Rear.jpg" alt="Thumbnail of Nike Dunks Pandas Close Rear" onmouseover="changeMainImage('Nike Dunk Low Panda Close up Rear.jpg')">
         </div>
       </div>
       <div class="main-grey-box">
@@ -61,25 +46,25 @@
     </div>
     <div class="right-column">
       <p class="brand-name">Nike</p> <!-- Brand Name -->
-      <h1 class="product-title">Dunks Low Panda</h1> <!-- Product Title -->
+      <h1 class="product-title">Dunks Retro</h1> <!-- Product Title -->
       <p class="unisex-label">Unisex</p> <!-- Unisex Label -->
       <p class="price">$120</p>
       <p class="description">
-        The Nike Dunk Low Panda is a classic sneaker that has been re-released in 2021. The shoe features a black and white colorway with a panda design on the side. The shoe is made of leather and has a rubber sole. The Nike Dunk Low Panda is a versatile shoe that can be worn with a variety of outfits.
+        The Nike Dunks Retro is a versatile sneaker that combines a sleek grey design with the classic Dunk silhouette. Perfect for casual wear or making a statement, this shoe offers both comfort and style.
       </p>
       <div class="size-options">
         <h3>Select Size (UK):</h3>
         <div class="sizes">
-          <button class="size-button">6</button>
-          <button class="size-button">7</button>
-          <button class="size-button">8</button>
-          <button class="size-button">9</button>
-          <button class="size-button">10</button>
-          <button class="size-button">11</button>
-          <button class="size-button">12</button>
+          <button class="size-button" data-size="6">6</button>
+          <button class="size-button" data-size="7">7</button>
+          <button class="size-button" data-size="8">8</button>
+          <button class="size-button" data-size="9">9</button>
+          <button class="size-button" data-size="10">10</button>
+          <button class="size-button" data-size="11">11</button>
+          <button class="size-button" data-size="12">12</button>
         </div>
       </div>
-      <button class="add-to-cart">Add to Cart</button>
+      <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
     </div>
   </main>
 
@@ -112,6 +97,7 @@
     <p>&copy; 2025 Sōru All Rights Reserved.</p>
   </footer>
 
+  <!-- Script for changing the main image -->
   <script>
     function changeMainImage(imageSrc) {
       const mainImage = document.getElementById('main-image');
@@ -119,16 +105,62 @@
     }
   </script>
 
+  <!-- Script for size selection and Add to Cart -->
   <script>
     const sizeButtons = document.querySelectorAll('.size-button');
+    let selectedSize = null;
+
     sizeButtons.forEach(button => {
       button.addEventListener('click', () => {
         // Remove the 'selected' class from all buttons
         sizeButtons.forEach(btn => btn.classList.remove('selected'));
         // Add the 'selected' class to the clicked button
         button.classList.add('selected');
+        // Update the selected size
+        selectedSize = button.getAttribute('data-size');
       });
     });
+
+    // Add to Cart functionality
+    const addToCartButton = document.getElementById('add-to-cart');
+    addToCartButton.addEventListener('click', () => {
+      if (!selectedSize) {
+        showNotification('Please select a size before adding to the cart.');
+        return;
+      }
+
+      // Add the product to the cart
+      addToCart({
+        id: 1, // Unique product ID for Nike Dunks Grey
+        name: 'Nike Dunks Low Pandas',
+        price: 120,
+        size: selectedSize,
+        image: 'Nike Dunk Low Panda Sideways.webp'
+      });
+
+      // Show the notification
+      showNotification(`Nike Dunks Low Pandas (Size: ${selectedSize}) has been added to your cart!`);
+    });
+
+    // Function to show a notification
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.classList.remove('hidden');
+      notification.classList.add('show');
+
+      // Hide the notification after 3 seconds
+      setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hidden');
+      }, 3000);
+    }
   </script>
+
+  <!-- Notification Container -->
+  <div id="notification" class="notification hidden"></div>
+
+  <!-- Include the cartHandler.js script -->
+  <script src="cartHandler.js"></script>
 </body>
 </html>

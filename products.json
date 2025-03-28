@@ -1,0 +1,20 @@
+[
+    {
+      "name": "Nike Dunk Low Panda",
+      "price": "$120",
+      "image": "Nike Dunk Low Panda Sideways.webp",
+      "link": "Nike Dunk Low Pandas.html"
+    },
+    {
+      "name": "Nike Air Force 1",
+      "price": "$115",
+      "image": "Nike Air Forces 1 Sideways.webp",
+      "link": "Nike Air Forces 1.html"
+    },
+    {
+      "name": "Nike Air Max 90",
+      "price": "$150",
+      "image": "Nike Air Max 90 Sideways.jpg",
+      "link": "Nike Air Max 90.html"
+    }
+  ]
