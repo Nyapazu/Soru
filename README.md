@@ -1,2 +1,2 @@
-# elite-kicks
+# Sōru
 
