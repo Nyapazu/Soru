@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nike Dunks Redwood</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="loadHeader.js" defer></script> <!-- Script for loading the header -->
+</head>
+<body>
+  <header></header>
+
+  <!-- Product Page Content -->
+  <main class="product-page">
+    <div class="product-images-column">
+      <div class="thumbnail-column">
+        <!-- Thumbnail for Sideways View -->
+        <div class="small-grey-box">
+          <img src="Nike Dunk Redwood Sideways.webp" alt="Thumbnail of Nike Dunks Redwood Sideways" onmouseover="changeMainImage('Nike Dunk Redwood Sideways.webp')">
+        </div>
+        <!-- Thumbnail for Front View -->
+        <div class="small-grey-box">
+          <img src="Nike Dunk Redwood Front.png" alt="Thumbnail of Nike Dunks Redwood Front" onmouseover="changeMainImage('Nike Dunk Redwood Front.png')">
+        </div>
+        <!-- Thumbnail for Top View -->
+        <div class="small-grey-box">
+          <img src="Nike Dunk Redwood Top.webp" alt="Thumbnail of Nike Dunks Redwood Top" onmouseover="changeMainImage('Nike Dunk Redwood Top.webp')">
+        </div>
+        <!-- Thumbnail for Back View -->
+        <div class="small-grey-box">
+          <img src="Nike Dunk Redwood Rear.webp" alt="Thumbnail of Nike Dunks Redwood Rear" onmouseover="changeMainImage('Nike Dunk Redwood Rear.webp')">
+        </div>
+        <!-- Thumbnail for Close-up Look on Front -->
+        <div class="small-grey-box">
+          <img src="Nike Dunk Redwood Close Up Front.jpg" alt="Thumbnail of Nike Dunks Redwood Close Front" onmouseover="changeMainImage('Nike Dunk Redwood Close Up Front.jpg')">
+        </div>
+        <!-- Thumbnail for Close-up Look on Rear -->
+        <div class="small-grey-box">
+          <img src="Nike Dunk Redwood Close Up Rear.jpg" alt="Thumbnail of Nike Dunks Redwood Close Rear" onmouseover="changeMainImage('Nike Dunk Redwood Close Up Rear.jpg')">
+        </div>
+      </div>
+      <div class="main-grey-box">
+        <!-- Main Image -->
+        <img id="main-image" src="Nike Dunk Redwood Sideways.webp" alt="Main Shoe Image">
+      </div>
+    </div>
+    <div class="right-column">
+      <p class="brand-name">Nike</p> <!-- Brand Name -->
+      <h1 class="product-title">Dunks Redwood</h1> <!-- Product Title -->
+      <p class="unisex-label">Unisex</p> <!-- Unisex Label -->
+      <p class="price">$120</p>
+      <p class="description">
+        The Nike Dunks Redwood is a bold and stylish sneaker that combines a striking redwood colorway with the classic Dunk silhouette. Perfect for making a statement, this shoe offers both comfort and standout design.
+      </p>
+      <div class="size-options">
+        <h3>Select Size (UK):</h3>
+        <div class="sizes">
+          <button class="size-button" data-size="6">6</button>
+          <button class="size-button" data-size="7">7</button>
+          <button class="size-button" data-size="8">8</button>
+          <button class="size-button" data-size="9">9</button>
+          <button class="size-button" data-size="10">10</button>
+          <button class="size-button" data-size="11">11</button>
+          <button class="size-button" data-size="12">12</button>
+        </div>
+      </div>
+      <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p>&copy; 2025 Sōru All Rights Reserved.</p>
+  </footer>
+
+  <!-- Script for changing the main image -->
+  <script>
+    function changeMainImage(imageSrc) {
+      const mainImage = document.getElementById('main-image');
+      mainImage.src = imageSrc;
+    }
+  </script>
+
+  <!-- Script for size selection and Add to Cart -->
+  <script>
+    const sizeButtons = document.querySelectorAll('.size-button');
+    let selectedSize = null;
+
+    sizeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove the 'selected' class from all buttons
+        sizeButtons.forEach(btn => btn.classList.remove('selected'));
+        // Add the 'selected' class to the clicked button
+        button.classList.add('selected');
+        // Update the selected size
+        selectedSize = button.getAttribute('data-size');
+      });
+    });
+
+    // Add to Cart functionality
+    const addToCartButton = document.getElementById('add-to-cart');
+    addToCartButton.addEventListener('click', () => {
+      if (!selectedSize) {
+        showNotification('Please select a size before adding to the cart.');
+        return;
+      }
+
+      // Add the product to the cart
+      addToCart({
+        id: 3, // Unique product ID for Nike Dunks Redwood
+        name: 'Nike Dunks Redwood',
+        price: 120,
+        size: selectedSize,
+        image: 'Nike Dunk Redwood Sideways.webp'
+      });
+
+      // Show the notification
+      showNotification(`Nike Dunks Redwood (Size: ${selectedSize}) has been added to your cart!`);
+    });
+
+    // Function to show a notification
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.classList.remove('hidden');
+      notification.classList.add('show');
+
+      // Hide the notification after 3 seconds
+      setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hidden');
+      }, 3000);
+    }
+  </script>
+
+  <!-- Notification Container -->
+  <div id="notification" class="notification hidden"></div>
+
+  <!-- Include the cartHandler.js script -->
+  <script src="cartHandler.js"></script>
+</body>
+</html>

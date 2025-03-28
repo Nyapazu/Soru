@@ -8,13 +8,51 @@
   <script src="loadHeader.js" defer></script>
 </head>
 <body>
-  <header></header>
+  <header>
+    <div class="logo">
+      <h1 class="brand-logo">Sōru</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="new-arrivals.html">New Arrivals</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Filter Button -->
+  <button id="filter-button" class="filter-button">Filter</button>
+
+  <!-- Filter Sidebar -->
+  <div id="filter-sidebar" class="filter-sidebar">
+    <div class="filter-header">
+      <h3>Filters</h3>
+      <button id="close-filter" class="close-filter">&times;</button>
+    </div>
+    <div class="filter-options">
+      <h4>Category</h4>
+      <div class="checkbox-group" id="category-filters">
+        <label><input type="checkbox" value="air-force-1"> Air Force 1</label>
+        <label><input type="checkbox" value="dunks"> Dunks</label>
+        <label><input type="checkbox" value="air-max"> Air Max</label>
+      </div>
+
+      <h4>Gender</h4>
+      <div class="checkbox-group" id="gender-filters">
+        <label><input type="checkbox" value="men"> Men</label>
+        <label><input type="checkbox" value="women"> Women</label>
+        <label><input type="checkbox" value="unisex"> Unisex</label>
+      </div>
+    </div>
+  </div>
 
   <!-- Store Content -->
   <main>
-    <div class="product-grid">
-      <!-- Nike Dunk Low Pandas -->
-      <div class="product-item">
+    <div id="product-grid" class="product-grid">
+      <!-- Nike Dunk Low Panda -->
+      <div class="product-item" data-category="dunks" data-gender="unisex">
         <div class="grey-box">
           <a href="Nike Dunk Low Pandas.html" class="grey-box-link">
             <img src="Nike Dunk Low Panda Sideways.webp" alt="Shoe Image" class="shoe-image">
@@ -27,8 +65,8 @@
         </div>
       </div>
 
-      <!-- Air Forces 1 -->
-      <div class="product-item">
+      <!-- Nike Air Force 1 -->
+      <div class="product-item" data-category="air-force-1" data-gender="unisex">
         <div class="grey-box">
           <a href="Nike Air Forces 1.html" class="grey-box-link">
             <img src="Nike Air Forces 1 Sideways.webp" alt="Shoe Image" class="shoe-image">
@@ -41,8 +79,8 @@
         </div>
       </div>
 
-      <!-- Air Max 90 -->
-      <div class="product-item">
+      <!-- Nike Air Max 90 -->
+      <div class="product-item" data-category="air-max" data-gender="men">
         <div class="grey-box">
           <a href="Nike Air Max 90.html" class="grey-box-link">
             <img src="Nike Air Max 90 Sideways.jpg" alt="Shoe Image" class="shoe-image">
@@ -55,8 +93,22 @@
         </div>
       </div>
 
-      <!-- Grey Dunks -->
-      <div class="product-item">
+      <!-- Nike Dunks Redwood -->
+      <div class="product-item" data-category="dunks" data-gender="unisex">
+        <div class="grey-box">
+          <a href="Nike Dunks Redwood.html" class="grey-box-link">
+            <img src="Nike Dunk Redwood Sideways.webp" alt="Shoe Image" class="shoe-image">
+            <img src="Nike Dunk Redwood Front.png" alt="Shoe Hover Image" class="shoe-image-hover">
+          </a>
+        </div>
+        <div class="shoe-details">
+          <p class="shoe-name">Nike Dunks Redwood</p>
+          <p class="shoe-price"><strong>$120</strong></p>
+        </div>
+      </div>
+
+      <!-- Nike Grey Dunks -->
+      <div class="product-item" data-category="dunks" data-gender="women">
         <div class="grey-box">
           <a href="Nike Dunks Grey.html" class="grey-box-link">
             <img src="Grey Dunks Sideways.webp" alt="Shoe Image" class="shoe-image">
@@ -68,36 +120,112 @@
           <p class="shoe-price"><strong>$120</strong></p>
         </div>
       </div>
+
+      <!-- Nike AF 1 Low Light Bone Sail -->
+      <div class="product-item" data-category="air-force-1" data-gender="men">
+        <div class="grey-box">
+          <a href="Nike AF 1 Low Light.html" class="grey-box-link">
+            <img src="Nike AF 1 Low Light Bone Sail Sideways.webp" alt="Shoe Image" class="shoe-image">
+            <img src="Nike AF 1 Low Light Bone Sail Front.png" alt="Shoe Hover Image" class="shoe-image-hover">
+          </a>
+        </div>
+        <div class="shoe-details">
+          <p class="shoe-name">Nike Air Forces 1 Low Light Bone Sail</p>
+          <p class="shoe-price"><strong>$125</strong></p>
+        </div>
+      </div>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h3>Company</h3>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+  <!-- Page Overlay -->
+  <div id="page-overlay" class="page-overlay"></div>
+
+  <script>
+    // Open and Close Filter Sidebar with Overlay
+    const filterButton = document.getElementById('filter-button');
+    const filterSidebar = document.getElementById('filter-sidebar');
+    const pageOverlay = document.getElementById('page-overlay');
+    const closeFilter = document.getElementById('close-filter');
+    const categoryFilters = document.querySelectorAll('#category-filters input[type="checkbox"]');
+    const genderFilters = document.querySelectorAll('#gender-filters input[type="checkbox"]');
+
+    // Open the sidebar and show the overlay
+    filterButton.addEventListener('click', () => {
+      filterSidebar.classList.add('open');
+      pageOverlay.classList.add('visible');
+    });
+
+    // Close the sidebar and hide the overlay
+    closeFilter.addEventListener('click', () => {
+      filterSidebar.classList.remove('open');
+      pageOverlay.classList.remove('visible');
+    });
+
+    // Close the sidebar and overlay when clicking on the overlay
+    pageOverlay.addEventListener('click', () => {
+      filterSidebar.classList.remove('open');
+      pageOverlay.classList.remove('visible');
+    });
+
+    // Filter Products
+    function filterProducts() {
+      const selectedCategories = Array.from(categoryFilters)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+      const selectedGenders = Array.from(genderFilters)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+      const products = document.querySelectorAll('.product-item');
+
+      products.forEach(product => {
+        const productCategory = product.getAttribute('data-category');
+        const productGender = product.getAttribute('data-gender');
+
+        const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(productCategory);
+        const matchesGender = selectedGenders.length === 0 || selectedGenders.includes(productGender);
+
+        if (matchesCategory && matchesGender) {
+          product.style.display = 'block'; // Show matching products
+        } else {
+          product.style.display = 'none'; // Hide non-matching products
+        }
+      });
+    }
+
+    // Attach event listeners to the checkboxes
+    categoryFilters.forEach(checkbox => checkbox.addEventListener('change', filterProducts));
+    genderFilters.forEach(checkbox => checkbox.addEventListener('change', filterProducts));
+  </script>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="support.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer-section">
-        <h3>Support</h3>
-        <ul>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="support.html">Support</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Legal</h3>
-        <ul>
-          <li><a href="terms.html">Terms of Service</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <p>&copy; 2025 Sōru All Rights Reserved.</p>
-  </footer>
-</body>
-</html>
+      <p>&copy; 2025 Sōru All Rights Reserved.</p>
+    </footer>
+  </body>
+  </html>

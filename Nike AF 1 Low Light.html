@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nike AF 1 Low Light Bone Sail</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="loadHeader.js" defer></script>
+</head>
+<body>
+  <header></header>
+
+  <!-- Product Page Content -->
+  <main class="product-page">
+    <div class="product-images-column">
+      <div class="thumbnail-column">
+        <!-- Thumbnail for Sideways View -->
+        <div class="small-grey-box">
+          <img src="Nike AF 1 Low Light Bone Sail Sideways.webp" alt="Thumbnail of Nike AF 1 Low Light Bone Sail Sideways" onmouseover="changeMainImage('Nike AF 1 Low Light Bone Sail Sideways.webp')">
+        </div>
+        <!-- Thumbnail for Front View -->
+        <div class="small-grey-box">
+          <img src="Nike AF 1 Low Light Bone Sail Front.png" alt="Thumbnail of Nike AF 1 Low Light Bone Sail Front" onmouseover="changeMainImage('Nike AF 1 Low Light Bone Sail Front.png')">
+        </div>
+        <!-- Thumbnail for Top View -->
+        <div class="small-grey-box">
+          <img src="Nike AF 1 Low Light Bone Sail Top.webp" alt="Thumbnail of Nike AF 1 Low Light Bone Sail Top" onmouseover="changeMainImage('Nike AF 1 Low Light Bone Sail Top.webp')">
+        </div>
+        <!-- Thumbnail for Back View -->
+        <div class="small-grey-box">
+          <img src="Nike AF 1 Low Light Bone Sail Rear.webp" alt="Thumbnail of Nike AF 1 Low Light Bone Sail Rear" onmouseover="changeMainImage('Nike AF 1 Low Light Bone Sail Rear.webp')">
+        </div>
+        <!-- Thumbnail for Close-up Look on Front -->
+        <div class="small-grey-box">
+          <img src="Nike AF 1 Low Light Bone Sail Close Up Front.webp" alt="Thumbnail of Nike AF 1 Low Light Bone Sail Close Front" onmouseover="changeMainImage('Nike AF 1 Low Light Bone Sail Close Up Front.webp')">
+        </div>
+        <!-- Thumbnail for Close-up Look on Rear -->
+        <div class="small-grey-box">
+          <img src="Nike AF 1 Low Light Bone Sail Close Up Rear.webp" alt="Thumbnail of Nike AF 1 Low Light Bone Sail Close Rear" onmouseover="changeMainImage('Nike AF 1 Low Light Bone Sail Close Up Rear.webp')">
+        </div>
+      </div>
+      <div class="main-grey-box">
+        <!-- Main Image -->
+        <img id="main-image" src="Nike AF 1 Low Light Bone Sail Sideways.webp" alt="Main Shoe Image">
+      </div>
+    </div>
+    <div class="right-column">
+      <p class="brand-name">Nike</p> <!-- Brand Name -->
+      <h1 class="product-title">Air Forces 1 Low 'Light Bone Sail'</h1> <!-- Product Title -->
+      <p class="unisex-label">Women</p> <!-- Unisex Label -->
+      <p class="price">$125</p>
+      <p class="description">
+        The Nike Air Forces 1 Low 'Light Bone Sail' is a modern take on the classic Air Force 1 silhouette. Featuring a clean and minimalistic design with a light bone and sail colorway, this shoe is perfect for everyday wear.
+      </p>
+      <div class="size-options">
+        <h3>Select Size (UK):</h3>
+        <div class="sizes">
+          <button class="size-button" data-size="6">6</button>
+          <button class="size-button" data-size="7">7</button>
+          <button class="size-button" data-size="8">8</button>
+          <button class="size-button" data-size="9">9</button>
+          <button class="size-button" data-size="10">10</button>
+          <button class="size-button" data-size="11">11</button>
+          <button class="size-button" data-size="12">12</button>
+        </div>
+      </div>
+      <button id="add-to-cart" class="add-to-cart">Add to Cart</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p>&copy; 2025 Sōru All Rights Reserved.</p>
+  </footer>
+
+  <!-- Script for changing the main image -->
+  <script>
+    function changeMainImage(imageSrc) {
+      const mainImage = document.getElementById('main-image');
+      mainImage.src = imageSrc;
+    }
+  </script>
+
+  <!-- Script for size selection and Add to Cart -->
+  <script>
+    const sizeButtons = document.querySelectorAll('.size-button');
+    let selectedSize = null;
+
+    sizeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove the 'selected' class from all buttons
+        sizeButtons.forEach(btn => btn.classList.remove('selected'));
+        // Add the 'selected' class to the clicked button
+        button.classList.add('selected');
+        // Update the selected size
+        selectedSize = button.getAttribute('data-size');
+      });
+    });
+
+    // Add to Cart functionality
+    const addToCartButton = document.getElementById('add-to-cart');
+    addToCartButton.addEventListener('click', () => {
+      if (!selectedSize) {
+        showNotification('Please select a size before adding to the cart.');
+        return;
+      }
+
+      // Add the product to the cart
+      addToCart({
+        id: 6, // Unique product ID for Nike AF 1 Low Light Bone Sail
+        name: 'Nike AF 1 Low Light Bone Sail',
+        price: 125,
+        size: selectedSize,
+        image: 'Nike AF 1 Low Light Bone Sail Sideways.webp'
+      });
+
+      // Show the notification
+      showNotification(`Nike AF 1 Low Light Bone Sail (Size: ${selectedSize}) has been added to your cart!`);
+    });
+
+    // Function to show a notification
+    function showNotification(message) {
+      const notification = document.getElementById('notification');
+      notification.textContent = message;
+      notification.classList.remove('hidden');
+      notification.classList.add('show');
+
+      // Hide the notification after 3 seconds
+      setTimeout(() => {
+        notification.classList.remove('show');
+        notification.classList.add('hidden');
+      }, 3000);
+    }
+  </script>
+
+  <!-- Notification Container -->
+  <div id="notification" class="notification hidden"></div>
+
+  <!-- Include the cartHandler.js script -->
+  <script src="cartHandler.js"></script>
+</body>
+</html>
